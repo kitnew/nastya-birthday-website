@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <title>Yippee!</title>
+  </head>
+  <body>
+    <div id="app">
+      <section id="screen-greeting" class="screen active">
+        <h1>З днем народження, Настусику ❤️</h1>
+        <p class="lead">
+          Як ти вже, думаю, знаєш, я не дуже вмію висловлювати свої емоції а особливо писати. Щоб це компенсувати, я вирішив зробити щось ручками. Не буду довго тягнути кота за бубєнчікі. Дякую тобі за те що ти є. Тицьни на кнопочку "Далі", будь ласка.
+        </p>
+        <button id="btn-to-cake" class="btn">Далі</button>
+      </section>
+
+      <section id="screen-cake" class="screen">
+        <h2>Я ніколи не дружив із солодким, тому ось цей тортик - поки що вершина моїх можливостей (впевнений ти зможеш це змінити).</h2>
+        <p class="lead">
+          Тицьни на кнопочку "Увімкнути мікрофон" а потім задуй свічки.
+        </p>
+        
+        <div class="cake-wrap" id="cake-wrap">
+          <div class="cake-svg" id="cake-container"></div>
+          <div class="smoke-layer" aria-hidden="true">
+            <span class="smoke s1"></span>
+            <span class="smoke s2"></span>
+            <span class="smoke s3"></span>
+            <span class="smoke s4"></span>
+          </div>
+        </div>
+        
+        <div class="meter">
+          <div id="meter-bar" class="meter-bar"></div>
+        </div>
+        
+        <div class="row">
+          <button id="btn-mic" class="btn">Увімкнути мікрофон</button>
+          <button id="btn-back" class="btn btn-ghost">Назад</button>
+        </div>
+
+      </section>
+
+      <section id="screen-video" class="screen">
+        <h2>Ого, це що, Special вітання??</h2>
+        <p class="lead">Хто ж це там?</p>
+
+        <div class="video-card" id="video-card">
+          <video id="video" class="video" preload="metadata" playsinline></video>
+
+          <div id="video-overlay" class="video-overlay">
+            <div class="overlay-title">Знову тицьни</div>
+            <div class="overlay-sub">не забудь увімкнути звук!!!</div>
+          </div>
+          <button id="btn-play" class="play-btn" aria-label="Play">
+            ▶
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <div id="final-screen" class="final-screen" aria-hidden="true">
+      <div class="final-content">
+        <div class="final-text">Ще раз з днем народження!</div>
+        <div class="final-sub">Кохаю тебе ❤️</div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

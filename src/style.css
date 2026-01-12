@@ -1,0 +1,428 @@
+:root {
+  --bg1: #fff7fb;
+  --bg2: #fff1e6;
+  --card: rgba(255, 255, 255, 0.72);
+  --stroke: rgba(0, 0, 0, 0.10);
+  --text: rgba(20, 18, 22, 0.92);
+  --muted: rgba(20, 18, 22, 0.68);
+
+  --accent: #e85d8f;
+  --accent2: #ff9bb8;
+
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+
+  color: var(--text);
+  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  background:
+    radial-gradient(1200px 700px at 20% 10%, var(--bg1), transparent 60%),
+    radial-gradient(900px 650px at 80% 30%, var(--bg2), transparent 55%),
+    linear-gradient(180deg, #ffffff, #fff7fb);
+}
+
+#app {
+  width: min(820px, 100%);
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--card);
+  outline: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.screen {
+  display: none;
+  gap: 16px;
+}
+
+.screen.active {
+  display: grid;
+  animation: fadeUp 240ms ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.2px;
+}
+
+h1 { font-size: clamp(30px, 5vw, 44px); }
+h2 { font-size: clamp(22px, 3.6vw, 30px); }
+
+.lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 10px 26px rgba(232, 93, 143, 0.22);
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+
+.btn:hover { transform: translateY(-1px); filter: brightness(1.02); }
+.btn:active { transform: translateY(0px) scale(0.99); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  outline: 1px solid var(--stroke);
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Индикатор уровня */
+.meter {
+  width: 320px;
+  height: 12px;
+  border-radius: 999px;
+  outline: 1px solid var(--stroke);
+  overflow: hidden;
+  background: rgba(255,255,255,0.6);
+}
+
+.meter-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  transition: width 80ms linear;
+}
+
+/* Видео в карточке */
+.video {
+  width: min(760px, 100%);
+  border-radius: 16px;
+  outline: 1px solid var(--stroke);
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.10);
+}
+
+.video-card {
+  position: relative;
+  width: min(760px, 100%);
+  border-radius: 18px;
+  outline: 1px solid var(--stroke);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  background: rgba(255,255,255,0.65);
+}
+
+.video-card .video {
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  text-align: center;
+  padding: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.72)
+  );
+  backdrop-filter: blur(16px);
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+
+.overlay-title {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.overlay-sub {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 74px;
+  height: 74px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 14px 34px rgba(232, 93, 143, 0.28);
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.play-btn:hover { transform: translate(-50%, -50%) scale(1.03); filter: brightness(1.02); }
+.play-btn:active { transform: translate(-50%, -50%) scale(0.99); }
+
+.video-card.playing .video-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-card.playing .play-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Плавный вход экрана видео */
+#screen-video.active .video-card {
+  animation: revealCard 260ms ease-out;
+}
+
+@keyframes revealCard {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Уважение к настройкам анимаций */
+@media (prefers-reduced-motion: reduce) {
+  .screen.active { animation: none; }
+  .btn, .btn-ghost { transition: none; }
+  .flame { animation: none !important; transition: none; }
+  .smoke { animation: none !important; }
+}
+
+
+/* ===== Торт (SVG) ===== */
+
+.cake-wrap {
+  position: relative;
+  width: 320px;
+  margin: 12px 0;
+}
+
+.cake-svg {
+  width: 320px;
+  margin: 12px 0;
+}
+
+.cake-svg svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Важно: работаем именно с группой .flame внутри каждой свечи */
+.cake-svg .flame {
+  transform-box: fill-box;              /* чтобы transform-origin работал стабильно в SVG */
+  transform-origin: 50% 85%;            /* ближе к фитилю */
+  will-change: transform, opacity, filter;
+
+  /* 3 слоя анимации: "дыхание", "покачивание", "вспышки" */
+  animation:
+    flame-scale 320ms ease-in-out infinite alternate,
+    flame-sway  540ms ease-in-out infinite alternate,
+    flame-pop   140ms steps(2, end) infinite;
+  filter: drop-shadow(0 0 2px rgba(255, 166, 0, 0.55));
+}
+
+#cake-wrap {
+  --blow: 0;
+}
+.flame {
+  transform:
+    rotate(calc(var(--blow) * -14deg))
+    translateX(calc(var(--blow) * 6px))
+    scale(calc(1 - var(--blow) * 0.10));
+}
+
+/* Разнесём свечи по фазе, чтобы не было “хора” */
+#candle-1 .flame { animation-delay: 0ms,   0ms,   0ms; }
+#candle-2 .flame { animation-delay: 70ms,  110ms, 30ms; }
+#candle-3 .flame { animation-delay: 140ms, 220ms, 60ms; }
+
+/* Состояние "погашено" */
+.cake-svg .flame.off {
+  opacity: 0;
+  transform: translateY(6px) scale(0.6);
+  filter: none;
+  animation: none;
+  transition: opacity 220ms ease, transform 220ms ease, filter 220ms ease;
+}
+
+#cake-wrap.blown .flame {
+  opacity: 0;
+  filter: blur(1px);
+  transform: rotate(-55deg) translateX(18px) translateY(6px) scale(0.65);
+  animation: none;
+}
+
+@keyframes flicker {
+  from { filter: blur(0px); }
+  to   { filter: blur(0.4px); }
+}
+
+/* Мягкий скейл (как “дыхание” огня) */
+@keyframes flame-scale {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(1px) scale(0.88); }
+}
+
+/* Покачивание */
+@keyframes flame-sway {
+  from { transform: rotate(-3deg); }
+  to   { transform: rotate(3deg); }
+}
+
+/* Быстрые микро-вспышки: чуть меняем прозрачность */
+@keyframes flame-pop {
+  0%   { opacity: 0.95; }
+  100% { opacity: 0.75; }
+}
+
+/* Если пользователь предпочитает меньше анимаций */
+@media (prefers-reduced-motion: reduce) {
+  .cake-svg .flame { animation: none; }
+}
+
+
+/* ===== Дымок ===== */
+.smoke-layer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 45%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.smoke {
+  position: absolute;
+  bottom: 10px;             /* подгони под верх свечей */
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  outline: 2px solid rgba(0,0,0,0.10);
+  opacity: 0;
+  transform: translateY(0) scale(1);
+}
+
+/* позиции дымков (подгони под расположение свечей) */
+.smoke.s1 { left: 42%; }
+.smoke.s2 { left: 48%; }
+.smoke.s3 { left: 54%; }
+.smoke.s4 { left: 60%; }
+
+/* запуск дыма после blow */
+#cake-wrap.blown .smoke-layer {
+  opacity: 1;
+}
+
+#cake-wrap.blown .smoke {
+  animation: smokeUp 1.4s ease-out forwards;
+}
+
+/* небольшая рассинхронизация */
+#cake-wrap.blown .smoke.s2 { animation-delay: 0.05s; }
+#cake-wrap.blown .smoke.s3 { animation-delay: 0.10s; }
+#cake-wrap.blown .smoke.s4 { animation-delay: 0.15s; }
+
+@keyframes smokeUp {
+  0%   { opacity: 0; transform: translateY(0) scale(0.9); }
+  15%  { opacity: 0.55; }
+  60%  { opacity: 0.35; }
+  100% { opacity: 0; transform: translateY(-55px) scale(1.6); }
+}
+
+
+/* ===== Финальный полноэкранный экран ===== */
+.final-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    /* radial-gradient(900px 500px at 50% 40%, rgba(255,255,255,0.25), transparent 80%), */
+    linear-gradient(180deg, rgba(20,18,22,0.85), rgba(20,18,22,0.95));
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1200ms ease;
+}
+
+.final-screen.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.final-content {
+  text-align: center;
+  color: #fff;
+  animation: finalFadeUp 1200ms ease-out;
+}
+
+.final-text {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 7vw, 64px);
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
+.final-sub {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+@keyframes finalFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

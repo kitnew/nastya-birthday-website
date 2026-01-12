@@ -1,0 +1,116 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- =========================
+       Simple cake + 3 candles
+       Everything is vector.
+       Candle groups have ids:
+       candle-1..3 and flame-1..3
+       ========================= -->
+
+  <!-- Background (optional) -->
+  <rect width="512" height="512" fill="#FFFFFF"/>
+
+  <!-- Plate shadow -->
+  <ellipse cx="256" cy="420" rx="190" ry="28" fill="#000000" opacity="0.08"/>
+
+  <!-- Plate -->
+  <ellipse cx="256" cy="410" rx="200" ry="34" fill="#F1F5FF"/>
+  <ellipse cx="256" cy="406" rx="170" ry="22" fill="#E6EEFF"/>
+
+  <!-- Cake base (bottom tier) -->
+  <g id="cake">
+    <!-- Side -->
+    <rect x="110" y="260" width="292" height="140" rx="28" fill="#D8A06A"/>
+    <!-- Side shading -->
+    <path d="M110 288 C150 312, 190 276, 230 300 C270 324, 312 284, 350 306 C374 320, 390 310, 402 304
+             V372 C402 388 390 400 374 400 H138 C122 400 110 388 110 372 Z"
+          fill="#C98F5A" opacity="0.55"/>
+
+    <!-- Top surface -->
+    <ellipse cx="256" cy="260" rx="146" ry="34" fill="#E8B37B"/>
+
+    <!-- Frosting layer -->
+    <path d="M120 260 C135 290 160 270 178 292 C195 314 220 288 240 312
+             C260 336 288 308 308 332 C328 356 356 332 372 354
+             C384 370 396 360 404 350
+             L404 292 C404 276 392 264 376 264 H136
+             C126 264 121 262 120 260 Z"
+          fill="#FFF1F6"/>
+
+    <!-- Frosting drip highlights -->
+    <path d="M138 270 C150 286 166 270 178 286 C190 302 206 288 220 304
+             C236 322 252 308 266 324"
+          stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" opacity="0.35"/>
+
+    <!-- Top frosting cap -->
+    <ellipse cx="256" cy="250" rx="132" ry="26" fill="#FFE3EF"/>
+    <ellipse cx="256" cy="246" rx="120" ry="20" fill="#FFD4E7" opacity="0.7"/>
+
+    <!-- Sprinkles -->
+    <g opacity="0.9">
+      <rect x="175" y="230" width="18" height="6" rx="3" fill="#FF6B6B" transform="rotate(-18 175 230)"/>
+      <rect x="215" y="220" width="18" height="6" rx="3" fill="#4D96FF" transform="rotate(22 215 220)"/>
+      <rect x="290" y="250" width="18" height="6" rx="3" fill="#7CDB7A" transform="rotate(-12 290 250)"/>
+      <rect x="330" y="260" width="18" height="6" rx="3" fill="#FFD36A" transform="rotate(18 330 260)"/>
+      <rect x="250" y="240" width="18" height="6" rx="3" fill="#B784FF" transform="rotate(-22 250 240)"/>
+    </g>
+  </g>
+
+  <!-- =========================
+       Candles (separate groups)
+       ========================= -->
+
+  <!-- Candle 1 -->
+  <g id="candle-1" transform="translate(210 80)">
+    <!-- body -->
+    <rect x="-14" y="78" width="28" height="92" rx="8" fill="#FF6B6B"/>
+    <!-- stripes -->
+    <rect x="-12" y="92" width="24" height="8" rx="4" fill="#FFD6D6" opacity="0.95"/>
+    <rect x="-12" y="116" width="24" height="8" rx="4" fill="#FFD6D6" opacity="0.95"/>
+    <rect x="-12" y="140" width="24" height="8" rx="4" fill="#FFD6D6" opacity="0.95"/>
+    <!-- wick -->
+    <rect x="-1.5" y="66" width="3" height="16" rx="1.5" fill="#2B2B2B"/>
+    <!-- flame -->
+    <g class="flame">
+      <!-- Outer flame - larger -->
+      <path d="M0 30 C-14 18 -8 0 0 -14 C8 0 14 18 0 30 Z" fill="#FFA600"/>
+      <!-- Inner flame - larger -->
+      <path d="M0 24 C-8 14 -4 2 0 -8 C4 2 8 14 0 24 Z" fill="#FFD36A" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- Candle 2 -->
+  <g id="candle-2" transform="translate(256 80)">
+    <rect x="-14" y="78" width="28" height="108" rx="8" fill="#4D96FF"/>
+    <rect x="-12" y="92" width="24" height="8" rx="4" fill="#D8ECFF" opacity="0.95"/>
+    <rect x="-12" y="118" width="24" height="8" rx="4" fill="#D8ECFF" opacity="0.95"/>
+    <rect x="-12" y="144" width="24" height="8" rx="4" fill="#D8ECFF" opacity="0.95"/>
+    <rect x="-1.5" y="66" width="3" height="16" rx="1.5" fill="#2B2B2B"/>
+    <g class="flame">
+      <!-- Outer flame - larger -->
+      <path d="M0 30 C-14 18 -8 0 0 -14 C8 0 14 18 0 30 Z" fill="#FFA600"/>
+      <!-- Inner flame - larger -->
+      <path d="M0 24 C-8 14 -4 2 0 -8 C4 2 8 14 0 24 Z" fill="#FFD36A" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- Candle 3 -->
+  <g id="candle-3" transform="translate(302 80)">
+    <rect x="-14" y="78" width="28" height="88" rx="8" fill="#7CDB7A"/>
+    <rect x="-12" y="92" width="24" height="8" rx="4" fill="#E6FFE5" opacity="0.95"/>
+    <rect x="-12" y="114" width="24" height="8" rx="4" fill="#E6FFE5" opacity="0.95"/>
+    <rect x="-12" y="136" width="24" height="8" rx="4" fill="#E6FFE5" opacity="0.95"/>
+    <rect x="-1.5" y="66" width="3" height="16" rx="1.5" fill="#2B2B2B"/>
+    <g class="flame">
+      <!-- Outer flame - larger -->
+      <path d="M0 30 C-14 18 -8 0 0 -14 C8 0 14 18 0 30 Z" fill="#FFA600"/>
+      <!-- Inner flame - larger -->
+      <path d="M0 24 C-8 14 -4 2 0 -8 C4 2 8 14 0 24 Z" fill="#FFD36A" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- A subtle top highlight so candles feel "embedded" in frosting -->
+  <ellipse cx="256" cy="250" rx="132" ry="26" fill="#FFFFFF" opacity="0.10"/>
+
+</svg>
